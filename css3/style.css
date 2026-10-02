@@ -1,0 +1,201 @@
+/* ============================================================ */
+/* style.css: hoja de estilos ÚNICA para las cuatro páginas      */
+/* (inicio, productos, servicios y contacto)                     */
+/* ============================================================ */
+
+body{
+	background-color: black;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*--------------------*/
+/*------ header ------*/
+/*--------------------*/
+
+body #header{
+	width: 100%;
+	background-color: black;
+}
+
+/*nav*/
+body #header nav{
+	color: white;
+	width: 100%;
+	text-align: center;
+	height: 50px;
+	display: flex;
+}
+/*logo*/
+body #header nav #logo{
+	width: 10%;
+}
+body #header nav #logo img{
+	width: 50px;
+}
+/*service*/
+body #header nav #service{
+	width: 10%;
+}
+body #header nav #service img{
+	width: 45px;
+	padding-top: 5px;
+}
+/*ul*/
+body #header nav ul{
+	list-style-type: none;
+	border-bottom: 2px solid white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	margin: 0px;
+	width: 80%;
+}
+body #header nav ul li{
+	display: inline-block;
+	min-width: 100px;
+	padding: 10px;
+}
+/* .active marca la página actual con el mismo aspecto que el hover */
+body #header nav ul li:hover,
+body #header nav ul li.active{
+	background-color: white;
+	color: black;
+}
+body #header nav ul li a{
+	text-decoration: none;
+	color: inherit;
+}
+/*notices*/
+body #header #notices{
+	background-color: #D9DEE3;
+	color: black;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/*---------------------*/
+/*----- container -----*/
+/*---------------------*/
+
+body #container{
+	width: 100%;
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+/* título e introducción de inicio, servicios y contacto */
+body #container .intro{
+	width: 100%;
+	color: white;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+/* caja gris compartida: tarjetas de producto y tarjetas (.card) de las demás páginas */
+body #container .product,
+body #container .card{
+	background-color: #D9DEE3;
+	margin: 0 20px 20px;
+	padding: 20px;
+	text-align: center;
+	width: 25%;
+}
+body #container .product img{
+	width: 100%;
+}
+body #container .card img{
+	width: 80px;
+}
+body #container .name{
+	font-size: 20px;
+	font-weight: 600;
+}
+body #container .price{
+	font-size: 22px;
+	font-weight: 600;
+	color: #800000;
+}
+
+/* botón "Añadir al carrito" y botones .button: mismo color, borde y hover */
+body #container .product .add_product,
+body #container .button{
+	border: 1px solid white;
+	color: black;
+	background-color: #D9DEE3;
+}
+body #container .product .add_product:hover,
+body #container .button:hover{
+	background-color: white;
+}
+body #container .product .add_product .container_button{
+	height: 30px;
+	padding: 5px;
+}
+body #container .product .add_product .container_button img{
+	width: 20px;
+	margin-right: 5px;
+}
+/* .button sirve tanto para enlaces <a> como para <button> */
+body #container .button{
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	font: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* formulario de contacto: más ancho que una tarjeta y alineado a la izquierda */
+body #container .contact_form{
+	width: 40%;
+	text-align: left;
+}
+body #container .contact_form label{
+	display: block;
+	margin-top: 15px;
+	font-weight: 600;
+}
+body #container .contact_form input,
+body #container .contact_form textarea{
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	margin-top: 5px;
+	padding: 8px;
+	border: 1px solid white;
+	font: inherit;
+}
+body #container .contact_form textarea{
+	resize: vertical;
+}
+body #container .contact_form .button{
+	margin-top: 20px;
+}
+
+/*--------------------*/
+/*------ footer ------*/
+/*--------------------*/
+
+body footer{
+	background-color: #D9DEE3;
+	height: 200px;
+	color: black;
+	margin-top: 100px;
+	display: flex;
+	flex-wrap: wrap;
+}
+body footer .icon_footer{
+	width: 33%;
+	text-align: center;
+}
+body footer .icon_footer img{
+	width: 60px;
+	margin: 30px 10px 0px;
+}
