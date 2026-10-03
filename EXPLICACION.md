@@ -7,8 +7,8 @@ mismo estilo visual y la misma estructura de proyecto.
 ## 1. Estructura del proyecto
 
 ```
-css3/
-├── inicio.html            ← NUEVA: página de inicio
+raíz del repositorio/
+├── index.html             ← NUEVA: página de inicio (la abre GitHub Pages por defecto)
 ├── css Ejercicio2.html    ← página de productos (actividad anterior)
 ├── servicios.html         ← NUEVA: página de servicios
 ├── contacto.html          ← NUEVA: página de contacto
@@ -60,7 +60,7 @@ Todas las páginas siguen exactamente la misma estructura que la página de prod
 
 | Menú | Enlace |
 |---|---|
-| INICIO | `inicio.html` |
+| INICIO | `index.html` |
 | PRODUCTOS | `css%20Ejercicio2.html` |
 | SERVICIOS | `servicios.html` |
 | CONTACTO | `contacto.html` |
@@ -79,7 +79,7 @@ asistencia técnica.
 
 ## 3. Contenido de cada página
 
-### Inicio (`inicio.html`)
+### Inicio (`index.html`)
 
 - `.intro`: título `<h1>` de bienvenida y un párrafo `<p>` en blanco sobre el fondo negro.
 - Tres tarjetas `.card` (Productos, Servicios, Contacto). Cada una tiene:

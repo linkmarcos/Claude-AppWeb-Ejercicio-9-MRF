@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
-        <title>Contacto | TechStore MRF</title>
+        <title>Servicios | TechStore MRF</title>
     </head>
     <body>
 
@@ -18,10 +18,10 @@
                     <img src="images/logo.png" alt="TechStore">
                 </div>
                 <ul>
-                    <li><a href="inicio.html">INICIO</a></li>
+                    <li><a href="index.html">INICIO</a></li>
                     <li><a href="css%20Ejercicio2.html">PRODUCTOS</a></li>
-                    <li><a href="servicios.html">SERVICIOS</a></li>
-                    <li class="active"><a href="contacto.html">CONTACTO</a></li>
+                    <li class="active"><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="contacto.html">CONTACTO</a></li>
                 </ul>
                 <a href="https://www.flaticon.es/iconos-gratis/servicio-al-cliente" id="service">
                     <img src="images/icons/servicio-al-cliente.png" alt="Atención al cliente">
@@ -29,32 +29,31 @@
             </nav>
         </div>
 
-        <!-- ==== CONTACTO: datos de la tienda y formulario ==== -->
+        <!-- ==== SERVICIOS: una tarjeta .card por servicio, con su precio ==== -->
 
         <div id="container">
             <div class="intro">
-                <h1>Contacto</h1>
-                <p>Llámanos o rellena el formulario y te responderemos en menos de 24 h.</p>
+                <h1>Nuestros servicios</h1>
+                <p>En TechStore te acompañamos antes, durante y después de tu compra.</p>
             </div>
             <div class="card">
-                <img src="images/icons/servicio-al-cliente.png" alt="">
-                <h2 class="name">Atención al cliente</h2>
-                <p><strong>Teléfono</strong><br>900 123 456</p>
-                <p><strong>Email</strong><br>info@techstore.es</p>
-                <p><strong>Horario</strong><br>Lunes a viernes de 9:00 a 18:00</p>
+                <img src="images/icons/shipping-and-delivery.png" alt="">
+                <h2 class="name">Envío gratis</h2>
+                <p>Sin gastos de envío en todos los pedidos superiores a 60 €.</p>
+                <div class="price">Gratis</div>
             </div>
-            <form class="card contact_form" action="#">
-                <h2 class="name">Envíanos un mensaje</h2>
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="asunto">Asunto</label>
-                <input type="text" id="asunto" name="asunto">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                <button type="submit" class="button">Enviar mensaje</button>
-            </form>
+            <div class="card">
+                <img src="images/icons/24h.png" alt="">
+                <h2 class="name">Envío en 24 h</h2>
+                <p>Los pedidos hechos antes de las 14:00 llegan el siguiente día laborable.</p>
+                <div class="price">Incluido</div>
+            </div>
+            <div class="card">
+                <img src="images/icons/asistencia.png" alt="">
+                <h2 class="name">Asistencia técnica</h2>
+                <p>Diagnóstico, reparación y mantenimiento de tu equipo por nuestros técnicos.</p>
+                <div class="price">Desde 29,99 €</div>
+            </div>
         </div>
 
         <!-- ==== FOOTER: ventajas de la tienda ==== -->
