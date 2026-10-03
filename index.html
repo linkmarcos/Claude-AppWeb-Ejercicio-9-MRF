@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
-        <title>Servicios | TechStore MRF</title>
+        <title>Inicio | TechStore MRF</title>
     </head>
     <body>
 
@@ -18,9 +18,9 @@
                     <img src="images/logo.png" alt="TechStore">
                 </div>
                 <ul>
-                    <li><a href="inicio.html">INICIO</a></li>
+                    <li class="active"><a href="index.html">INICIO</a></li>
                     <li><a href="css%20Ejercicio2.html">PRODUCTOS</a></li>
-                    <li class="active"><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
                     <li><a href="contacto.html">CONTACTO</a></li>
                 </ul>
                 <a href="https://www.flaticon.es/iconos-gratis/servicio-al-cliente" id="service">
@@ -29,30 +29,30 @@
             </nav>
         </div>
 
-        <!-- ==== SERVICIOS: una tarjeta .card por servicio, con su precio ==== -->
+        <!-- ==== INICIO: bienvenida y accesos directos a cada sección ==== -->
 
         <div id="container">
             <div class="intro">
-                <h1>Nuestros servicios</h1>
-                <p>En TechStore te acompañamos antes, durante y después de tu compra.</p>
+                <h1>Bienvenido a TechStore</h1>
+                <p>Tu tienda de ordenadores de sobremesa: equipos listos para jugar, trabajar y crear.</p>
             </div>
             <div class="card">
-                <img src="images/icons/shipping-and-delivery.png" alt="">
-                <h2 class="name">Envío gratis</h2>
-                <p>Sin gastos de envío en todos los pedidos superiores a 60 €.</p>
-                <div class="price">Gratis</div>
-            </div>
-            <div class="card">
-                <img src="images/icons/24h.png" alt="">
-                <h2 class="name">Envío en 24 h</h2>
-                <p>Los pedidos hechos antes de las 14:00 llegan el siguiente día laborable.</p>
-                <div class="price">Incluido</div>
+                <img src="images/icons/carro-de-la-compra.png" alt="">
+                <h2 class="name">Productos</h2>
+                <p>Descubre nuestros PCs de sobremesa con las últimas gráficas RTX.</p>
+                <a href="css%20Ejercicio2.html" class="button">Ver productos</a>
             </div>
             <div class="card">
                 <img src="images/icons/asistencia.png" alt="">
-                <h2 class="name">Asistencia técnica</h2>
-                <p>Diagnóstico, reparación y mantenimiento de tu equipo por nuestros técnicos.</p>
-                <div class="price">Desde 29,99 €</div>
+                <h2 class="name">Servicios</h2>
+                <p>Envío gratis, entrega en 24 h y asistencia técnica especializada.</p>
+                <a href="servicios.html" class="button">Ver servicios</a>
+            </div>
+            <div class="card">
+                <img src="images/icons/servicio-al-cliente.png" alt="">
+                <h2 class="name">Contacto</h2>
+                <p>¿Tienes dudas? Escríbenos y te responderemos en menos de 24 h.</p>
+                <a href="contacto.html" class="button">Contactar</a>
             </div>
         </div>
 
