@@ -199,3 +199,100 @@ body footer .icon_footer img{
 	width: 60px;
 	margin: 30px 10px 0px;
 }
+
+/*-------------------------------*/
+/*------ responsive (móvil) ------*/
+/*-------------------------------*/
+/* Las reglas de escritorio de arriba no se tocan: aquí solo se sobrescribe lo
+   que cambia en pantallas pequeñas (enfoque "desktop first", max-width). */
+
+/* ---- tablet y móvil grande: hasta 900px ---- */
+@media (max-width: 900px){
+
+	/* 2 tarjetas por fila: el ancho incluye relleno y márgenes para que nunca desborden */
+	body #container .product,
+	body #container .card{
+		box-sizing: border-box;
+		width: calc(50% - 40px);
+	}
+	body #container .contact_form{
+		width: calc(70% - 40px);
+	}
+}
+
+/* ---- móvil: hasta 700px ---- */
+@media (max-width: 700px){
+
+	/* header: logo y atención al cliente en la primera fila, menú debajo en 2x2 */
+	body #header nav{
+		height: auto;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	body #header nav #logo{
+		order: 1;
+		box-sizing: border-box;
+		width: 50%;
+		padding: 5px 0 5px 16px;
+		text-align: left;
+	}
+	body #header nav #service{
+		order: 2;
+		box-sizing: border-box;
+		width: 50%;
+		padding-right: 16px;
+		text-align: right;
+	}
+	body #header nav ul{
+		order: 3;
+		width: 100%;
+		height: auto;
+		flex-wrap: wrap;
+		padding: 0px;
+	}
+	/* el relleno pasa del <li> al enlace: toda la celda es pulsable con el dedo */
+	body #header nav ul li{
+		flex: 1 1 50%;
+		min-width: 0px;
+		padding: 0px;
+	}
+	body #header nav ul li a{
+		display: block;
+		padding: 14px 10px;
+	}
+	body #header #notices{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	/* contenido: 1 columna */
+	body #container{
+		margin-top: 30px;
+	}
+	body #container .intro{
+		box-sizing: border-box;
+		padding: 0px 16px;
+	}
+	body #container .intro h1{
+		font-size: 1.6em;
+	}
+	body #container .product,
+	body #container .card,
+	body #container .contact_form{
+		width: calc(100% - 32px);
+		margin: 0 16px 20px;
+	}
+	body #container .name{
+		font-size: 18px;
+	}
+
+	/* footer: los 3 bloques en vertical y altura según el contenido */
+	body footer{
+		height: auto;
+		margin-top: 50px;
+		padding-bottom: 20px;
+	}
+	body footer .icon_footer{
+		width: 100%;
+	}
+}

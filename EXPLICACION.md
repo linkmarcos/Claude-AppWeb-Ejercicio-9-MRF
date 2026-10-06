@@ -207,3 +207,24 @@ corregido lo siguiente:
 - `.icon_footer img`: tres declaraciones de margen → `margin: 30px 10px 0px`.
 
 El aspecto de la página de productos no cambia con estas correcciones.
+
+## 6. Versión responsive (PC, tablet y móvil)
+
+El detalle completo, con capturas y el código, está en `EXPLICACION_RESPONSIVE.pdf`. Resumen:
+
+- **HTML:** se ha añadido en el `<head>` de las 4 páginas
+  `<meta name="viewport" content="width=device-width, initial-scale=1">`. Sin esta línea
+  el móvil dibuja la página a 980 px y la encoge.
+- **CSS:** al final de `style.css` hay dos bloques `@media (max-width: ...)` que solo
+  sobrescriben lo que cambia en pantallas pequeñas (las reglas de escritorio no se tocan):
+
+| Pantalla | Media query | Distribución |
+|---|---|---|
+| PC (más de 900 px) | ninguna | 3 tarjetas por fila, menú en una línea |
+| Tablet (701 a 900 px) | `max-width: 900px` | 2 tarjetas por fila (`calc(50% - 40px)`) |
+| Móvil (hasta 700 px) | `max-width: 700px` | 1 tarjeta por fila, menú 2x2, pie en vertical |
+
+- En móvil el logo y el icono de atención van arriba (`order`), el menú pasa a 2x2
+  (`flex: 1 1 50%`) y el enlace ocupa toda la celda para poder pulsarlo con el dedo.
+- No hay desbordamiento horizontal entre 320 y 1920 px, y el diseño de escritorio
+  (1280 px) es idéntico al anterior píxel a píxel.
