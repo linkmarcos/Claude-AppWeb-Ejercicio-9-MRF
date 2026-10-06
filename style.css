@@ -7,6 +7,7 @@ body{
 	background-color: black;
 	margin: 0px;
 	padding: 0px;
+	overflow-wrap: break-word;
 }
 
 /*--------------------*/
@@ -23,12 +24,13 @@ body #header nav{
 	color: white;
 	width: 100%;
 	text-align: center;
-	height: 50px;
+	min-height: 50px;
 	display: flex;
 }
 /*logo*/
 body #header nav #logo{
 	width: 10%;
+	line-height: 0;
 }
 body #header nav #logo img{
 	width: 50px;
@@ -36,6 +38,7 @@ body #header nav #logo img{
 /*service*/
 body #header nav #service{
 	width: 10%;
+	line-height: 0;
 }
 body #header nav #service img{
 	width: 45px;
@@ -46,15 +49,17 @@ body #header nav ul{
 	list-style-type: none;
 	border-bottom: 2px solid white;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
+	min-height: 50px;
 	margin: 0px;
 	width: 80%;
 }
 body #header nav ul li{
 	display: inline-block;
-	min-width: 100px;
+	flex-shrink: 0;
+	min-width: 10%;
 	padding: 10px;
 }
 /* .active marca la página actual con el mismo aspecto que el hover */
@@ -110,7 +115,7 @@ body #container .product img{
 	width: 100%;
 }
 body #container .card img{
-	width: 80px;
+	width: 25%;
 }
 body #container .name{
 	font-size: 20px;
@@ -203,29 +208,31 @@ body footer .icon_footer img{
 /*-------------------------------*/
 /*------ responsive (móvil) ------*/
 /*-------------------------------*/
-/* Las reglas de escritorio de arriba no se tocan: aquí solo se sobrescribe lo
-   que cambia en pantallas pequeñas (enfoque "desktop first", max-width). */
+/* Las reglas de escritorio de arriba se conservan: aquí solo se sobrescribe lo
+   que cambia en pantallas pequeñas (enfoque "desktop first", max-width).
+   Anchos, márgenes y rellenos horizontales van en porcentajes. Las alturas de
+   los enlaces del menú se dejan en px para que sean fáciles de pulsar. */
 
 /* ---- tablet y móvil grande: hasta 900px ---- */
 @media (max-width: 900px){
 
-	/* 2 tarjetas por fila: el ancho incluye relleno y márgenes para que nunca desborden */
+	/* 2 tarjetas por fila: 46% de ancho + 2% de margen a cada lado = 50% exacto */
 	body #container .product,
 	body #container .card{
 		box-sizing: border-box;
-		width: calc(50% - 40px);
+		width: 46%;
+		margin: 0 2% 2%;
 	}
 	body #container .contact_form{
-		width: calc(70% - 40px);
+		width: 66%;
 	}
 }
 
-/* ---- móvil: hasta 700px ---- */
-@media (max-width: 700px){
+/* ---- móvil: hasta 800px ---- */
+@media (max-width: 800px){
 
 	/* header: logo y atención al cliente en la primera fila, menú debajo en 2x2 */
 	body #header nav{
-		height: auto;
 		flex-wrap: wrap;
 		align-items: center;
 	}
@@ -233,64 +240,68 @@ body footer .icon_footer img{
 		order: 1;
 		box-sizing: border-box;
 		width: 50%;
-		padding: 5px 0 5px 16px;
+		padding: 0 0 0 4%;
 		text-align: left;
 	}
 	body #header nav #service{
 		order: 2;
 		box-sizing: border-box;
 		width: 50%;
-		padding-right: 16px;
+		padding: 0 4% 0 0;
 		text-align: right;
 	}
 	body #header nav ul{
 		order: 3;
 		width: 100%;
-		height: auto;
-		flex-wrap: wrap;
-		padding: 0px;
+		padding: 0%;
 	}
 	/* el relleno pasa del <li> al enlace: toda la celda es pulsable con el dedo */
 	body #header nav ul li{
 		flex: 1 1 50%;
-		min-width: 0px;
-		padding: 0px;
+		min-width: min-content;
+		padding: 0%;
 	}
 	body #header nav ul li a{
 		display: block;
-		padding: 14px 10px;
+		padding: 14px 2%;
 	}
 	body #header #notices{
-		padding-left: 10px;
-		padding-right: 10px;
+		padding-left: 2%;
+		padding-right: 2%;
 	}
+}
 
-	/* contenido: 1 columna */
+/* ---- móvil pequeño: hasta 700px ---- */
+@media (max-width: 700px){
+
+	/* contenido: 1 columna (92% de ancho + 4% de margen a cada lado = 100%) */
 	body #container{
-		margin-top: 30px;
+		margin-top: 8%;
 	}
 	body #container .intro{
 		box-sizing: border-box;
-		padding: 0px 16px;
+		padding: 0 4%;
+		margin-bottom: 6%;
 	}
 	body #container .intro h1{
-		font-size: 1.6em;
+		font-size: 160%;
 	}
 	body #container .product,
 	body #container .card,
 	body #container .contact_form{
-		width: calc(100% - 32px);
-		margin: 0 16px 20px;
+		width: 92%;
+		margin: 0 4% 4%;
+		padding: 4%;
 	}
 	body #container .name{
-		font-size: 18px;
+		font-size: 112%;
 	}
 
 	/* footer: los 3 bloques en vertical y altura según el contenido */
 	body footer{
 		height: auto;
-		margin-top: 50px;
-		padding-bottom: 20px;
+		margin-top: 10%;
+		padding-bottom: 4%;
 	}
 	body footer .icon_footer{
 		width: 100%;

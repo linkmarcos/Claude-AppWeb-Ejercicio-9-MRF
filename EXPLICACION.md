@@ -215,16 +215,22 @@ El detalle completo, con capturas y el código, está en `EXPLICACION_RESPONSIVE
 - **HTML:** se ha añadido en el `<head>` de las 4 páginas
   `<meta name="viewport" content="width=device-width, initial-scale=1">`. Sin esta línea
   el móvil dibuja la página a 980 px y la encoge.
-- **CSS:** al final de `style.css` hay dos bloques `@media (max-width: ...)` que solo
-  sobrescriben lo que cambia en pantallas pequeñas (las reglas de escritorio no se tocan):
+- **CSS:** al final de `style.css` hay tres bloques `@media (max-width: ...)` que solo
+  sobrescriben lo que cambia en pantallas pequeñas. **Anchos, márgenes y rellenos
+  horizontales van en porcentajes** (la altura táctil de los enlaces del menú se deja en px).
 
 | Pantalla | Media query | Distribución |
 |---|---|---|
 | PC (más de 900 px) | ninguna | 3 tarjetas por fila, menú en una línea |
-| Tablet (701 a 900 px) | `max-width: 900px` | 2 tarjetas por fila (`calc(50% - 40px)`) |
-| Móvil (hasta 700 px) | `max-width: 700px` | 1 tarjeta por fila, menú 2x2, pie en vertical |
+| Tablet (801 a 900 px) | `max-width: 900px` | 2 tarjetas por fila (46 % + 2 % de margen a cada lado) |
+| Móvil grande (701 a 800 px) | `max-width: 800px` | 2 tarjetas por fila, cabecera en 2 filas con el menú 2x2 |
+| Móvil (hasta 700 px) | `max-width: 700px` | 1 tarjeta por fila (92 % + 4 % de margen a cada lado), pie en vertical |
 
+- **El menú salta de línea solo cuando no cabe.** Las reglas base de la cabecera usan
+  `min-height` en lugar de `height`, el `ul` tiene `flex-wrap: wrap` y cada opción
+  `min-width: 10 %` (antes 100 px) y `flex-shrink: 0`. Así, aunque el navegador tenga una
+  fuente más grande, las opciones pasan a una segunda línea en vez de salirse de la cabecera.
 - En móvil el logo y el icono de atención van arriba (`order`), el menú pasa a 2x2
   (`flex: 1 1 50%`) y el enlace ocupa toda la celda para poder pulsarlo con el dedo.
-- No hay desbordamiento horizontal entre 320 y 1920 px, y el diseño de escritorio
-  (1280 px) es idéntico al anterior píxel a píxel.
+- No hay desbordamiento horizontal entre 200 y 1100 px (y hasta 1920 px), con la fuente del navegador al
+  100 %, 150 % y 200 %. El diseño de escritorio se conserva (la cabecera mide 2 px más de alto).
