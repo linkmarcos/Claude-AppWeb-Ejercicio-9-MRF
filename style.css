@@ -7,7 +7,7 @@ body{
 	background-color: black;
 	margin: 0px;
 	padding: 0px;
-	overflow-wrap: break-word;
+	overflow-wrap: break-word; /* una palabra muy larga se parte en vez de salirse de la pantalla */
 }
 
 /*--------------------*/
@@ -24,13 +24,13 @@ body #header nav{
 	color: white;
 	width: 100%;
 	text-align: center;
-	min-height: 50px;
+	min-height: 50px; /* antes height: la cabecera crece si el menú ocupa 2 líneas */
 	display: flex;
 }
 /*logo*/
 body #header nav #logo{
 	width: 10%;
-	line-height: 0;
+	line-height: 0; /* quita el hueco bajo la imagen: la cabecera sigue midiendo 50px */
 }
 body #header nav #logo img{
 	width: 50px;
@@ -38,7 +38,7 @@ body #header nav #logo img{
 /*service*/
 body #header nav #service{
 	width: 10%;
-	line-height: 0;
+	line-height: 0; /* igual que el logo */
 }
 body #header nav #service img{
 	width: 45px;
@@ -49,17 +49,17 @@ body #header nav ul{
 	list-style-type: none;
 	border-bottom: 2px solid white;
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap; /* si las 4 opciones no caben, la última baja a otra línea */
 	justify-content: center;
 	align-items: center;
-	min-height: 50px;
+	min-height: 50px; /* antes height */
 	margin: 0px;
 	width: 80%;
 }
 body #header nav ul li{
 	display: inline-block;
-	flex-shrink: 0;
-	min-width: 10%;
+	flex-shrink: 0; /* la opción no se encoge por debajo de su texto */
+	min-width: 10%; /* antes 100px: ahora es un % del ancho del menú */
 	padding: 10px;
 }
 /* .active marca la página actual con el mismo aspecto que el hover */
@@ -115,7 +115,7 @@ body #container .product img{
 	width: 100%;
 }
 body #container .card img{
-	width: 25%;
+	width: 25%; /* % del ancho de la tarjeta (antes 80px) */
 }
 body #container .name{
 	font-size: 20px;
@@ -208,102 +208,100 @@ body footer .icon_footer img{
 /*-------------------------------*/
 /*------ responsive (móvil) ------*/
 /*-------------------------------*/
-/* Las reglas de escritorio de arriba se conservan: aquí solo se sobrescribe lo
-   que cambia en pantallas pequeñas (enfoque "desktop first", max-width).
-   Anchos, márgenes y rellenos horizontales van en porcentajes. Las alturas de
-   los enlaces del menú se dejan en px para que sean fáciles de pulsar. */
+/* Enfoque "desktop first": las reglas de arriba son las de escritorio y cada @media solo
+   sobrescribe lo que cambia. Los selectores se repiten IGUAL que arriba (misma especificidad)
+   y van después en el archivo, así que ganan. Medidas horizontales en %; alturas táctiles
+   en px. */
 
-/* ---- tablet y móvil grande: hasta 900px ---- */
+/* ---- tablet: hasta 900px ---- */
 @media (max-width: 900px){
 
-	/* 2 tarjetas por fila: 46% de ancho + 2% de margen a cada lado = 50% exacto */
 	body #container .product,
 	body #container .card{
-		box-sizing: border-box;
-		width: 46%;
-		margin: 0 2% 2%;
+		box-sizing: border-box; /* el ancho ya incluye el padding de 20px: la cuenta sale exacta */
+		width: 46%;             /* 46% de ancho... */
+		margin: 0 2% 2%;        /* ...+ 2% a cada lado = 50%: caben justo 2 por fila */
 	}
 	body #container .contact_form{
-		width: 66%;
+		width: 66%;             /* + 2% + 2% de margen = 70% de la fila */
 	}
 }
 
-/* ---- móvil: hasta 800px ---- */
+/* ---- cabecera en 2 filas: hasta 800px ---- */
 @media (max-width: 800px){
 
-	/* header: logo y atención al cliente en la primera fila, menú debajo en 2x2 */
+	/* header: logo e icono arriba, menú debajo en 2x2 */
 	body #header nav{
-		flex-wrap: wrap;
-		align-items: center;
+		flex-wrap: wrap;        /* permite que el menú pase a una segunda fila */
+		align-items: center;    /* centra logo e icono en vertical */
 	}
 	body #header nav #logo{
-		order: 1;
-		box-sizing: border-box;
-		width: 50%;
-		padding: 0 0 0 4%;
-		text-align: left;
+		order: 1;               /* 1º visualmente, sin tocar el HTML */
+		box-sizing: border-box; /* el padding cuenta dentro del 50% */
+		width: 50%;             /* mitad de la fila: junto al icono */
+		padding: 0 0 0 4%;      /* solo margen izquierdo, en % */
+		text-align: left;       /* logo pegado a la izquierda */
 	}
 	body #header nav #service{
-		order: 2;
+		order: 2;               /* 2º: a la derecha del logo */
 		box-sizing: border-box;
 		width: 50%;
-		padding: 0 4% 0 0;
-		text-align: right;
+		padding: 0 4% 0 0;      /* solo margen derecho */
+		text-align: right;      /* icono pegado a la derecha */
 	}
 	body #header nav ul{
-		order: 3;
-		width: 100%;
-		padding: 0%;
+		order: 3;               /* 3º: baja a su propia fila */
+		width: 100%;            /* ocupa todo el ancho (antes 80%) */
+		padding: 0%;            /* quita el relleno por defecto del <ul> */
 	}
-	/* el relleno pasa del <li> al enlace: toda la celda es pulsable con el dedo */
 	body #header nav ul li{
-		flex: 1 1 50%;
-		min-width: min-content;
-		padding: 0%;
+		flex: 1 1 50%;          /* crece/encoge desde el 50%: 2 opciones por fila */
+		min-width: min-content; /* nunca más estrecha que su texto: si no caben, 1 por fila */
+		padding: 0%;            /* el relleno pasa al enlace (siguiente regla) */
 	}
 	body #header nav ul li a{
-		display: block;
-		padding: 14px 2%;
+		display: block;         /* el enlace ocupa toda la celda: se pulsa con el dedo */
+		padding: 14px 2%;       /* 14px de alto (~46px de celda) y 2% a los lados */
 	}
 	body #header #notices{
-		padding-left: 2%;
+		padding-left: 2%;       /* el aviso no toca los bordes */
 		padding-right: 2%;
 	}
 }
 
-/* ---- móvil pequeño: hasta 700px ---- */
+/* ---- móvil: hasta 700px ---- */
 @media (max-width: 700px){
 
-	/* contenido: 1 columna (92% de ancho + 4% de margen a cada lado = 100%) */
+	/* contenido: 1 columna */
 	body #container{
-		margin-top: 8%;
+		margin-top: 8%;         /* separación con la cabecera, proporcional al ancho */
 	}
 	body #container .intro{
 		box-sizing: border-box;
-		padding: 0 4%;
+		padding: 0 4%;          /* título y párrafo no tocan los bordes */
 		margin-bottom: 6%;
 	}
 	body #container .intro h1{
-		font-size: 160%;
+		font-size: 160%;        /* 160% del texto base (antes 200%): se lee sin ocupar mucho */
 	}
 	body #container .product,
 	body #container .card,
 	body #container .contact_form{
-		width: 92%;
+		width: 92%;             /* 92% + 4% + 4% de margen = 100%: una tarjeta por fila */
 		margin: 0 4% 4%;
-		padding: 4%;
+		padding: 4%;            /* sustituye los 20px de escritorio */
 	}
 	body #container .name{
-		font-size: 112%;
+		font-size: 112%;        /* 112% de 16px = 18px, y crece si el usuario agranda el texto */
 	}
 
-	/* footer: los 3 bloques en vertical y altura según el contenido */
+	/* footer: bloques en vertical */
 	body footer{
-		height: auto;
+		height: auto;           /* antes 200px: ahora se ajusta al contenido apilado */
 		margin-top: 10%;
 		padding-bottom: 4%;
 	}
 	body footer .icon_footer{
-		width: 100%;
+		width: 100%;            /* cada bloque en su propia fila (antes 33%) */
 	}
 }
